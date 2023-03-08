@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.memoryapp.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_itemListDialogFragment"
+            app:destination="@id/itemListDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.example.memoryapp.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.memoryapp.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.memoryapp.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/itemListDialogFragment"
+        android:name="com.example.memoryapp.ItemListDialogFragment"
+        android:label="fragment_item_list_dialog_list_dialog"
+        tools:layout="@layout/fragment_item_list_dialog_list_dialog" >
+        <action
+            android:id="@+id/action_itemListDialogFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </dialog>
+</navigation>
