@@ -33,18 +33,12 @@ buildscript {
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
 
 
-
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 
 
 }
 
-//plugins {
-//    id "org.jetbrains.dokka" version "1.6.10"
-//}
+
 
 
 

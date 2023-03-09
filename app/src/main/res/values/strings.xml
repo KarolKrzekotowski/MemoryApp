@@ -2,4 +2,6 @@
     <string name="app_name">MemoryApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_4x4">4x4</string>
+    <string name="_6x6">6x6</string>
 </resources>

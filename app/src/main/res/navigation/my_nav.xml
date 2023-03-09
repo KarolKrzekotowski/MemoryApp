@@ -14,19 +14,27 @@
             android:id="@+id/action_mainMenuFragment_to_instructionFragment"
             app:destination="@id/instructionFragment" />
         <action
-            android:id="@+id/action_mainMenuFragment_to_itemListDialogFragment"
-            app:destination="@id/itemListDialogFragment" />
+            android:id="@+id/action_mainMenuFragment_to_bottomDialogFragment"
+            app:destination="@id/bottomDialog" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
-        android:name="com.example.memoryapp.InstructionFragment"
+        android:name="com.example.memoryapp.instruction.InstructionFragment"
         android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" />
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/action_instructionFragment_to_instruction0Fragment"
+            app:destination="@id/navigation" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.memoryapp.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="sizeOfMap"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.memoryapp.SplashFragment"
@@ -37,12 +45,30 @@
             app:destination="@id/mainMenuFragment" />
     </fragment>
     <dialog
-        android:id="@+id/itemListDialogFragment"
-        android:name="com.example.memoryapp.ItemListDialogFragment"
-        android:label="fragment_item_list_dialog_list_dialog"
-        tools:layout="@layout/fragment_item_list_dialog_list_dialog" >
+        android:id="@+id/bottomDialog"
+        android:name="com.example.memoryapp.BottomDialog"
+        android:label="BottomDialog"
+        tools:layout="@layout/bottom_dialog">
         <action
-            android:id="@+id/action_itemListDialogFragment_to_gameFragment"
+            android:id="@+id/action_bottomDialogFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </dialog>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/instruction0Fragment">
+        <fragment
+            android:id="@+id/instruction0Fragment"
+            android:name="com.example.memoryapp.instruction.Instruction0Fragment"
+            android:label="fragment_instruction0"
+            tools:layout="@layout/fragment_instruction0"/>
+        <fragment
+            android:id="@+id/instruction1Fragment"
+            android:name="com.example.memoryapp.instruction.Instruction1Fragment"
+            android:label="fragment_instruction1"
+            tools:layout="@layout/fragment_instruction1"/>
+        <fragment
+            android:id="@+id/instruction2Fragment"
+            android:name="com.example.memoryapp.instruction.Instruction2Fragment"
+            android:label="fragment_instruction2"
+            tools:layout="@layout/fragment_instruction2" />
+    </navigation>
 </navigation>

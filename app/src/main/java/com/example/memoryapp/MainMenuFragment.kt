@@ -24,7 +24,7 @@ class MainMenuFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToInstructionFragment())
         }
         binding.button2.setOnClickListener {
-            Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToGameFragment())
+            Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToBottomDialogFragment())
         }
 
         // Inflate the layout for this fragment
