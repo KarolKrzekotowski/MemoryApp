@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.memoryapp.GameFragment"
+        android:name="com.example.memoryapp.game.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <argument

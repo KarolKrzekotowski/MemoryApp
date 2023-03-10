@@ -24,6 +24,10 @@ class BottomDialog : BottomSheetDialogFragment() {
             val action = BottomDialogDirections.actionBottomDialogFragmentToGameFragment(4)
             findNavController().navigate(action)
         }
+        binding.button6x6.setOnClickListener {
+            val action = BottomDialogDirections.actionBottomDialogFragmentToGameFragment(6)
+            findNavController().navigate(action)
+        }
         return binding.root
 
     }
