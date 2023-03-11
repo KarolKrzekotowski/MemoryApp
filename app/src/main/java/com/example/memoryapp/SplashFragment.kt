@@ -22,7 +22,7 @@ class SplashFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
             findNavController()
                 .navigate(SplashFragmentDirections.actionSplashFragmentToMainMenuFragment())
-        }, 2000L)
+        }, 500L)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
