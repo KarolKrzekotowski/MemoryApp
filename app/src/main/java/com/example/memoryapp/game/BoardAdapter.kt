@@ -1,9 +1,7 @@
 package com.example.memoryapp.game
 
-import android.animation.Animator
 import android.animation.AnimatorSet
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,24 +11,23 @@ import android.widget.ImageSwitcher
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.memoryapp.R
 import com.example.memoryapp.databinding.CardItemBinding
+import kotlinx.coroutines.*
 
 class BoardAdapter (
-                    private val boardSize: Int,
-                    private val cards: List<Card>,
-                    private val onCardClick: (Card) -> Unit,
-                    private val front : AnimatorSet,
-                    private val back : AnimatorSet
-                    ): RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
+    private val sizeOfMap: Int,
+    private val cards: List<Card>,
+    private val front : AnimatorSet,
+    private val back : AnimatorSet
+                    ): RecyclerView.Adapter<BoardAdapter.ViewHolder>()
+{
     private lateinit var context:Context
     private lateinit var binding: CardItemBinding
-    private val images = arrayOf(R.drawable.black_joker,R.drawable.card_back_black)
-
+    private var es = mutableListOf<Pair<ViewHolder,Card>>()
+    private var points = 0
+    private var checking = false
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        var frontCard: ImageSwitcher = binding.imageView2
-
-
+        var playingCard: ImageSwitcher = binding.imageView2
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,9 +42,7 @@ class BoardAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val card = cards[position]
-
-
-        holder.frontCard.setFactory {
+        holder.playingCard.setFactory {
             val imageView = ImageView(context)
             imageView.scaleType = ImageView.ScaleType.FIT_CENTER
             imageView.layoutParams = FrameLayout.LayoutParams(
@@ -56,53 +51,56 @@ class BoardAdapter (
             )
             imageView
         }
-        holder.frontCard.setImageResource(R.drawable.card_back_black)
+        holder.playingCard.setImageResource(card.imageBack)
         val inAnimation = AnimationUtils.loadAnimation(context,android.R.anim.slide_in_left)
         val outAnimation = AnimationUtils.loadAnimation(context,android.R.anim.slide_out_right)
-        holder.frontCard.inAnimation = inAnimation
-        holder.frontCard.outAnimation = outAnimation
-        holder.frontCard.setImageResource(R.drawable.black_joker)
+        holder.playingCard.inAnimation = inAnimation
+        holder.playingCard.outAnimation = outAnimation
+        holder.playingCard.setImageResource(card.imageBack)
 
-        holder.frontCard.setOnClickListener {
-            var ab = 0
-            if (card.isFaceUp ){
-                ab = 0
-                card.isFaceUp = false
+        holder.playingCard.setOnClickListener {
+            if (card.isMatched || checking){
+                return@setOnClickListener
             }
-
-
-            else{
-                ab = 1
+            es.add(Pair(holder,card))
+            if (!card.isFaceUp ){
+                holder.playingCard.setImageResource(card.image)
                 card.isFaceUp = true
             }
+            if (es.size == 2){
+                CoroutineScope(Dispatchers.Main).launch {
+                    checking = true
+                    delay(500L)
 
+                    checkMatch()
 
+                }
 
-            holder.frontCard.setImageResource(images[ab])
+            }
         }
+    }
+    private fun checkMatch(){
+
+        if (es[0].second.image == es[1].second.image){
+            es[0].second.isMatched = true
+            es[1].second.isMatched = true
+            points++
+            checkWin()
         }
+        else{
+            es[0].first.playingCard.setImageResource(es[0].second.imageBack)
+            es[0].second.isFaceUp = false
+            es[1].first.playingCard.setImageResource(es[1].second.imageBack)
+            es[1].second.isFaceUp = false
 
-
-
+        }
+        es.clear()
+        checking = false
     }
 
-//    private fun flip(card: Card){
-//        if(card.isFaceUp)
-//        {
-//            front.setTarget(card.image);
-//            back.setTarget(card.imageBack);
-//            front.start()
-//            back.start()
-//            card.isFaceUp = false
-//
-//        }
-//        else
-//        {
-//            front.setTarget(card.imageBack)
-//
-//            back.setTarget(card.image)
-//            back.start()
-//            front.start()
-//            card.isFaceUp =true
-//
-//        }
+    private fun checkWin(){
+        if (points == sizeOfMap/2){
+            GameFragment.victory()
+        }
+    }
+}

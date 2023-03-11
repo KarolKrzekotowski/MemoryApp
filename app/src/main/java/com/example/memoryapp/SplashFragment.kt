@@ -21,7 +21,7 @@ class SplashFragment : Fragment() {
     ): View? {
         Handler(Looper.getMainLooper()).postDelayed({
             findNavController()
-                .navigate(SplashFragmentDirections.actionSplashFragmentToMainMenuFragment())
+                .navigate(SplashFragmentDirections.actionSplashFragmentToMainMenuFragment(false))
         }, 500L)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)

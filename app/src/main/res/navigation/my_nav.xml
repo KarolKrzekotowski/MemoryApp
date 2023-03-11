@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_mainMenuFragment_to_bottomDialogFragment"
             app:destination="@id/bottomDialog" />
+        <argument
+            android:name="victory"
+            app:argType="boolean"
+             />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
@@ -34,6 +38,9 @@
         <argument
             android:name="sizeOfMap"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_gameFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
