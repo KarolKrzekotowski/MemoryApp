@@ -5,6 +5,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import com.example.memoryapp.databinding.BottomDialogBinding
 
@@ -28,6 +29,8 @@ class BottomDialog : BottomSheetDialogFragment() {
             val action = BottomDialogDirections.actionBottomDialogFragmentToGameFragment(6)
             findNavController().navigate(action)
         }
+
+
         return binding.root
 
     }

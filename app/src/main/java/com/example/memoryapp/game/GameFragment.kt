@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -32,7 +33,7 @@ class GameFragment : Fragment() {
     ): View? {
         sizeOfMap = args.sizeOfMap
         _binding = FragmentGameBinding.inflate(inflater, container, false)
-
+        hideUI()
         return binding.root
     }
 
@@ -75,7 +76,24 @@ class GameFragment : Fragment() {
         cards.shuffle()
     }
 
-
+    private fun hideUI(){
+        requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+//        if (requireActivity().support .supportActionBar != null) {
+//            supportActionBar!!.hide();
+//        }
+        requireActivity().window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+    }
     companion object{
         private lateinit var instance :GameFragment
         fun victory(){

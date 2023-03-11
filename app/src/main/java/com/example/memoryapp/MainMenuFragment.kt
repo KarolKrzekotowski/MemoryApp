@@ -32,6 +32,7 @@ class MainMenuFragment : Fragment() {
             Toast.makeText(requireContext(),"Gratulacje", Toast.LENGTH_SHORT).show()
         }
         // Inflate the layout for this fragment
+
         return binding.root
     }
 
