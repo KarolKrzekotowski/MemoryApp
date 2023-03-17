@@ -1,4 +1,4 @@
-package com.example.memoryapp.instruction
+package com.example.memoryapp.ui.fragment.instruction
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.memoryapp.databinding.FragmentInstructionBinding
+import com.example.memoryapp.ui.fragment.instruction.adapter.InstructionAdapter
 
 class InstructionFragment : Fragment() {
     private var _binding: FragmentInstructionBinding? = null

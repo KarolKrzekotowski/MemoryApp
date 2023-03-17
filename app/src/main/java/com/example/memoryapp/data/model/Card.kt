@@ -1,4 +1,4 @@
-package com.example.memoryapp.game
+package com.example.memoryapp.data.model
 
 data class Card(
         val image: Int = 0,

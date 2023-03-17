@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainMenuFragment"
-        android:name="com.example.memoryapp.MainMenuFragment"
+        android:name="com.example.memoryapp.ui.fragment.menu.MainMenuFragment"
         android:label="fragment_main_menu"
         tools:layout="@layout/fragment_main_menu" >
         <action
@@ -20,10 +20,13 @@
             android:name="victory"
             app:argType="boolean"
              />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
-        android:name="com.example.memoryapp.instruction.InstructionFragment"
+        android:name="com.example.memoryapp.ui.fragment.instruction.InstructionFragment"
         android:label="fragment_instruction"
         tools:layout="@layout/fragment_instruction" >
         <action
@@ -32,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.memoryapp.game.GameFragment"
+        android:name="com.example.memoryapp.ui.fragment.game.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <argument
@@ -43,10 +46,16 @@
             app:destination="@id/mainMenuFragment"
             app:popUpTo="@id/mainMenuFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.memoryapp.SplashFragment"
+        android:name="com.example.memoryapp.ui.fragment.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -57,7 +66,7 @@
     </fragment>
     <dialog
         android:id="@+id/bottomDialog"
-        android:name="com.example.memoryapp.BottomDialog"
+        android:name="com.example.memoryapp.ui.fragment.bottomSetup.BottomDialog"
         android:label="BottomDialog"
         tools:layout="@layout/bottom_dialog">
         <action
@@ -68,18 +77,43 @@
         app:startDestination="@id/instruction0Fragment">
         <fragment
             android:id="@+id/instruction0Fragment"
-            android:name="com.example.memoryapp.instruction.Instruction0Fragment"
+            android:name="com.example.memoryapp.ui.fragment.instruction.pages.Instruction0Fragment"
             android:label="fragment_instruction0"
             tools:layout="@layout/fragment_instruction0"/>
         <fragment
             android:id="@+id/instruction1Fragment"
-            android:name="com.example.memoryapp.instruction.Instruction1Fragment"
+            android:name="com.example.memoryapp.ui.fragment.instruction.pages.Instruction1Fragment"
             android:label="fragment_instruction1"
             tools:layout="@layout/fragment_instruction1"/>
         <fragment
             android:id="@+id/instruction2Fragment"
-            android:name="com.example.memoryapp.instruction.Instruction2Fragment"
+            android:name="com.example.memoryapp.ui.fragment.instruction.pages.Instruction2Fragment"
             android:label="fragment_instruction2"
             tools:layout="@layout/fragment_instruction2" />
+    </navigation>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.example.memoryapp.ui.fragment.leaderboard.LeaderboardFragment"
+        android:label="fragment_leaderboard"
+        tools:layout="@layout/fragment_leaderboard" >
+        <action
+            android:id="@+id/action_leaderboardFragment_to_navigation2"
+            app:destination="@id/navigation2" />
+        <action
+            android:id="@+id/action_leaderboardFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <navigation android:id="@+id/navigation2"
+        app:startDestination="@id/globalRankFragment">
+        <fragment
+            android:id="@+id/globalRankFragment"
+            android:name="com.example.memoryapp.ui.fragment.leaderboard.global.GlobalRankFragment"
+            android:label="fragment_global_rank"
+            tools:layout="@layout/fragment_global_rank" />
+        <fragment
+            android:id="@+id/localRankFragment"
+            android:name="com.example.memoryapp.ui.fragment.leaderboard.local.LocalRankFragment"
+            android:label="fragment_local_rank"
+            tools:layout="@layout/fragment_local_rank" />
     </navigation>
 </navigation>

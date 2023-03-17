@@ -1,4 +1,4 @@
-package com.example.memoryapp.instruction
+package com.example.memoryapp.ui.fragment.instruction.pages
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

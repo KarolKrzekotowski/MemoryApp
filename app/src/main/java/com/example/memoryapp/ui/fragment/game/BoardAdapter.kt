@@ -1,6 +1,5 @@
-package com.example.memoryapp.game
+package com.example.memoryapp.ui.fragment.game
 
-import android.animation.AnimatorSet
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,20 +11,21 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.memoryapp.databinding.CardItemBinding
+import com.example.memoryapp.data.model.Card
 import kotlinx.coroutines.*
 
 class BoardAdapter (
     private val sizeOfMap: Int,
-    private val cards: List<Card>,
-    private val front : AnimatorSet,
-    private val back : AnimatorSet
+    private val onWinCardClick: () -> Unit
                     ): RecyclerView.Adapter<BoardAdapter.ViewHolder>()
 {
     private lateinit var context:Context
     private lateinit var binding: CardItemBinding
-    private var es = mutableListOf<Pair<ViewHolder,Card>>()
+    private var es = mutableListOf<Pair<ViewHolder, Card>>()
+    private var cards = emptyList<Card>()
     private var points = 0
     private var checking = false
+
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var playingCard: ImageSwitcher = binding.imageView2
     }
@@ -71,13 +71,15 @@ class BoardAdapter (
                 CoroutineScope(Dispatchers.Main).launch {
                     checking = true
                     delay(500L)
-
                     checkMatch()
-
                 }
 
             }
         }
+    }
+    fun setData(cards :List<Card>){
+        this.cards = cards
+        notifyDataSetChanged()
     }
     private fun checkMatch(){
 
@@ -100,7 +102,7 @@ class BoardAdapter (
 
     private fun checkWin(){
         if (points == sizeOfMap/2){
-            GameFragment.victory()
+            onWinCardClick()
         }
     }
 }

@@ -1,7 +1,10 @@
-package com.example.memoryapp.instruction
+package com.example.memoryapp.ui.fragment.instruction.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.memoryapp.ui.fragment.instruction.pages.Instruction0Fragment
+import com.example.memoryapp.ui.fragment.instruction.pages.Instruction1Fragment
+import com.example.memoryapp.ui.fragment.instruction.pages.Instruction2Fragment
 
 class InstructionAdapter(fragment:Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
