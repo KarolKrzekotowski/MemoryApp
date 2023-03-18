@@ -1,7 +1,6 @@
 package com.example.memoryapp.ui.fragment.game
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.memoryapp.R
@@ -25,7 +24,7 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     private var hours :Int = 0
     private var minutes : Int = 0
     private var seconds : Int = 0
-
+    var isPlaying = false
 
     val countUpFlow = flow<String> {
         while (running){

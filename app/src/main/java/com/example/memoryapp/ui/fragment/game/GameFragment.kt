@@ -1,21 +1,20 @@
 package com.example.memoryapp.ui.fragment.game
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.memoryapp.data.db.entities.Leaderboard
 import com.example.memoryapp.databinding.FragmentGameBinding
 import com.example.memoryapp.game.hideUI
-import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import kotlinx.coroutines.launch
 
 
@@ -60,24 +59,22 @@ class GameFragment : Fragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-
                 launch {
                     viewModel.countUpFlow.collect{ data ->
                         binding.clock.text = data
                         gameTime = data
                     }
                 }
-
+                if (!viewModel.isPlaying){
+                    viewModel.prepareCards(sizeOfMap)
+                    viewModel.isPlaying =true
+                }
                 launch {
                     viewModel.shuffledCards.collect{data ->
                         adapter.setData(data)
                     }
                 }
-            }
         }
-        viewModel.prepareCards(sizeOfMap)
     }
 private fun victory(){
         viewModel.running = false
