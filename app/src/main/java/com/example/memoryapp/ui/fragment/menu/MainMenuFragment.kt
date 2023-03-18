@@ -1,5 +1,6 @@
 package com.example.memoryapp.ui.fragment.menu
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.memoryapp.R
 import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.databinding.FragmentMainMenuBinding
 import com.example.memoryapp.game.hideUI
@@ -42,6 +44,18 @@ class MainMenuFragment : Fragment() {
         binding.leaderboards.setOnClickListener {
             val action = MainMenuFragmentDirections.actionMainMenuFragmentToLeaderboardFragment()
             findNavController().navigate(action)
+        }
+        val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.music)
+        binding.music.setOnClickListener {
+            if (mediaPlayer.isPlaying){
+                mediaPlayer.stop()
+            }
+            else{
+                mediaPlayer.isLooping = true
+                mediaPlayer.start()
+            }
+
+
         }
         if (args.victory){
             Toast.makeText(requireContext(),"Gratulacje", Toast.LENGTH_SHORT).show()

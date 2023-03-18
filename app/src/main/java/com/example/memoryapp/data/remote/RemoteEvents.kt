@@ -15,35 +15,37 @@ import kotlinx.coroutines.tasks.await
 import java.util.*
 import kotlin.collections.List
 
-class RemoteEvents:DataSource {
-    override fun uploadResult(leaderboard: LeaderboardRemote,uniqueID:String) {
-        myRef.child(uniqueID).child(leaderboard.name.toString()+leaderboard.level.toString()).setValue(leaderboard)
+class RemoteEvents : DataSource {
+    override fun uploadResult(leaderboard: LeaderboardRemote, uniqueID: String) {
+        myRef.child(uniqueID).child(leaderboard.name.toString() + leaderboard.level.toString())
+            .setValue(leaderboard)
     }
 
-    override suspend fun getAllRemote() : List<Leaderboard> {
+    override suspend fun getAllRemote(): List<Leaderboard> {
 
         val abc = mutableListOf<Leaderboard>()
         val temp = mutableListOf<String>()
 
 
-            myRef.get().addOnSuccessListener {
+        myRef.get().addOnSuccessListener {
 
-                for (i in it.children){
-                    for (b in i.children){
-                        for (c in b.children){
-                            temp.add(c.value.toString())
-                        }
-                        abc.add(temp.toLocal())
-                        temp.clear()
+            for (i in it.children) {
+                for (b in i.children) {
+                    for (c in b.children) {
+                        temp.add(c.value.toString())
                     }
+                    abc.add(temp.toLocal())
+                    temp.clear()
                 }
-            }.await()
-            return abc
+            }
+        }.await()
+        return abc
     }
 
-companion object{
-    val database = Firebase.database("https://memoryapp-7d0f6-default-rtdb.europe-west1.firebasedatabase.app/")
-    val myRef = database.reference
+    companion object {
+        val database =
+            Firebase.database("https://memoryapp-7d0f6-default-rtdb.europe-west1.firebasedatabase.app/")
+        val myRef = database.reference
 
     }
 }
