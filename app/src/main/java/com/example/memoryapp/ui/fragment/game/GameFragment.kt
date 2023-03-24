@@ -12,9 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.memoryapp.data.db.entities.Leaderboard
 import com.example.memoryapp.databinding.FragmentGameBinding
 import com.example.memoryapp.game.hideUI
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -41,10 +41,11 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.sizeOfMap = sizeOfMap
+        viewModel.playerName = args.playerName
         val adapter = BoardAdapter(
-            sizeOfMap = sizeOfMap*4,
-            onWinCardClick ={
-                victory()
+            onTryClick = {viewHolder, card ->
+                viewModel.insertToPair(Pair(viewHolder,card))
             }
             )
         binding.rvBoard.adapter = adapter
@@ -74,23 +75,26 @@ class GameFragment : Fragment() {
                         adapter.setData(data)
                     }
                 }
+                launch {
+                    viewModel.checking.collect{bool ->
+                        adapter.setState(bool)
+                    }
+                }
+                launch {
+                    viewModel.tries.collect{tries ->
+                        binding.moves.text = tries.toString()
+                    }
+                }
+
+                launch {
+                    viewModel.points.collect{
+                        if (it == sizeOfMap*2){
+                            val action =
+                                GameFragmentDirections.actionGameFragmentToMainMenuFragment(true)
+                            findNavController().navigate(action)
+                        }
+                        }
+                    }
+                }
         }
     }
-private fun victory(){
-        viewModel.running = false
-        viewModel.insertResultToDb(
-            Leaderboard(
-                id = 0,
-                name = args.playerName,
-                time = gameTime,
-                level = sizeOfMap*4
-            )
-        )
-        val action =
-            GameFragmentDirections.actionGameFragmentToMainMenuFragment(true)
-        findNavController().navigate(action)
-        }
-
-
-
-}

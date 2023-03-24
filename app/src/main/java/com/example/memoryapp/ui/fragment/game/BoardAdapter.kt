@@ -15,15 +15,12 @@ import com.example.memoryapp.data.model.Card
 import kotlinx.coroutines.*
 
 class BoardAdapter (
-    private val sizeOfMap: Int,
-    private val onWinCardClick: () -> Unit
+    private val onTryClick: (ViewHolder,Card) -> Unit
                     ): RecyclerView.Adapter<BoardAdapter.ViewHolder>()
 {
     private lateinit var context:Context
     private lateinit var binding: CardItemBinding
-    private var es = mutableListOf<Pair<ViewHolder, Card>>()
     private var cards = emptyList<Card>()
-    private var points = 0
     private var checking = false
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
@@ -62,47 +59,19 @@ class BoardAdapter (
             if (card.isMatched || checking){
                 return@setOnClickListener
             }
-            es.add(Pair(holder,card))
             if (!card.isFaceUp ){
                 holder.playingCard.setImageResource(card.image)
                 card.isFaceUp = true
             }
-            if (es.size == 2){
-                CoroutineScope(Dispatchers.Main).launch {
-                    checking = true
-                    delay(500L)
-                    checkMatch()
-                }
+            onTryClick(holder,card)
 
-            }
         }
     }
     fun setData(cards :List<Card>){
         this.cards = cards
         notifyDataSetChanged()
     }
-    private fun checkMatch(){
-
-        if (es[0].second.image == es[1].second.image){
-            es[0].second.isMatched = true
-            es[1].second.isMatched = true
-            points++
-            checkWin()
-        }
-        else{
-            es[0].first.playingCard.setImageResource(es[0].second.imageBack)
-            es[0].second.isFaceUp = false
-            es[1].first.playingCard.setImageResource(es[1].second.imageBack)
-            es[1].second.isFaceUp = false
-
-        }
-        es.clear()
-        checking = false
-    }
-
-    private fun checkWin(){
-        if (points == sizeOfMap/2){
-            onWinCardClick()
-        }
+    fun setState(boolean: Boolean){
+        checking = boolean
     }
 }

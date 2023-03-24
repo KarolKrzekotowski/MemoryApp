@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.memoryapp.data.db.dao.LeaderboardDao
-import com.example.memoryapp.data.db.entities.Leaderboard
+import com.example.memoryapp.data.db.entities.LeaderboardEntity
 
-@Database(entities = [Leaderboard::class], version = 1)
+@Database(entities = [LeaderboardEntity::class], version = 1)
 abstract class LeaderboardDatabase : RoomDatabase() {
     abstract fun leaderboardDao(): LeaderboardDao
 
@@ -19,7 +19,7 @@ abstract class LeaderboardDatabase : RoomDatabase() {
                 db = Room.databaseBuilder(
                     context,
                     LeaderboardDatabase::class.java,
-                    "leaderboard_database"
+                    "leaderboard_database2"
                 ).build()
             }
             return db!!

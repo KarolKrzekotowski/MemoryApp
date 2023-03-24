@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.memoryapp.R
+import com.example.memoryapp.data.db.entities.LeaderboardEntity
 import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.databinding.FragmentMainMenuBinding
 import com.example.memoryapp.game.hideUI
@@ -21,6 +22,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -30,10 +32,11 @@ class MainMenuFragment : Fragment() {
     private val args: MainMenuFragmentArgs by navArgs()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMainMenuBinding.inflate(inflater, container, false)
         binding.instruction.setOnClickListener {
             Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToInstructionFragment())
@@ -54,9 +57,20 @@ class MainMenuFragment : Fragment() {
                 mediaPlayer.isLooping = true
                 mediaPlayer.start()
             }
-
+//
 
         }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val repository = LeaderboardRepository(requireContext())
+//            var i = 0
+//            while (i<5){
+//
+//                repository.insertPlayer(LeaderboardEntity(0,"Karol$i",24,"00:05:0$i",15+i))
+//
+//        i++
+//        }
+
+//        }
         if (args.victory){
             Toast.makeText(requireContext(),"Gratulacje", Toast.LENGTH_SHORT).show()
         }

@@ -2,7 +2,8 @@ package com.example.memoryapp.data.remote
 
 import android.provider.Settings
 import android.util.Log
-import com.example.memoryapp.data.db.entities.Leaderboard
+
+import com.example.memoryapp.data.db.entities.LeaderboardEntity
 import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.ui.activities.MainActivity
 import com.example.memoryapp.ui.fragment.leaderboard.adapter.RankRecyclerViewAdapter
@@ -21,9 +22,9 @@ class RemoteEvents : DataSource {
             .setValue(leaderboard)
     }
 
-    override suspend fun getAllRemote(): List<Leaderboard> {
+    override suspend fun getAllRemote(): List<LeaderboardEntity> {
 
-        val abc = mutableListOf<Leaderboard>()
+        val abc = mutableListOf<LeaderboardEntity>()
         val temp = mutableListOf<String>()
 
 

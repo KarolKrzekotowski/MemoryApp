@@ -6,18 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.memoryapp.databinding.FragmentLocalRankBinding
+import com.example.memoryapp.ui.fragment.leaderboard.LeaderboardViewmodel
 import com.example.memoryapp.ui.fragment.leaderboard.adapter.RankRecyclerViewAdapter
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
 class LocalRankFragment : Fragment() {
-    private val viewModel by viewModels<LocalViewModel>()
+    private val viewModel by activityViewModels<LeaderboardViewmodel>()
     private var _binding: FragmentLocalRankBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -34,12 +37,17 @@ class LocalRankFragment : Fragment() {
         val adapter = RankRecyclerViewAdapter()
         binding.rvLocal.adapter = adapter
         binding.rvLocal.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.loadData()
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 launch {
-                    viewModel.leaderboard.collect(){
-                        adapter.setData(it!!)
+                    viewModel.tempLocal.collect{
+                        adapter.setData(it)
+                    }
+
+                }
+                launch {
+                    viewModel.resultType.collect{
+                        adapter.setResult(it)
                     }
                 }
             }
