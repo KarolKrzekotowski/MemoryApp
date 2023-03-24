@@ -42,7 +42,6 @@ class BottomDialog : BottomSheetDialogFragment() {
             add(binding.button16)
             add(binding.button24)
             add(binding.button32)
-//            map { it.background = resources.getDrawable(R.drawable.ezik) }
         }
 
         binding.apply {

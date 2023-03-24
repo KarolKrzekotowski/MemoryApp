@@ -1,15 +1,18 @@
 <resources>
-    <string name="app_name">MemoryApp</string>
+    <string name="app_name" translatable="false">MemoryApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="_4x4">16</string>
-    <string name="_4x6">24</string>
-    <string name="_6x8">32</string>
+
+    <string name="_4x4" translatable="false">16</string>
+    <string name="_4x6" translatable="false">24</string>
+    <string name="_4x8" translatable="false">32</string>
     <string name="gametype">GameType</string>
     <string name="button">Button</string>
     <string name="buttonxd">Button gdfjhfgsjdhf</string>
     <string name="textview">TextView fdsgfhjdfdfsfgf sfddsf</string>
-    <string name="rozpocznij_rozgrywk">Rozpocznij rozgrywkę</string>
+    <string name="rozpocznij_rozgrywk">Start Game</string>
     <string name="player_name">TextView</string>
     <string name="_32">32</string>
+    <string name="language">language</string>
+    <string name="muzyka">Music</string>
+    <string name="Leaderboard">Leaderboard</string>
 </resources>
