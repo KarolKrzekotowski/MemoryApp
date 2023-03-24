@@ -35,7 +35,7 @@ class BottomDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        Log.i("duperka","hej")
+
 
         val buttonsList = mutableListOf<Button>()
         buttonsList.apply {
