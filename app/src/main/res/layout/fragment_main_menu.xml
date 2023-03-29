@@ -4,70 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BD5454"
+    android:background="@color/black_main"
+    android:backgroundTint="@color/black_main"
+    android:foregroundTint="@color/black_main"
     tools:context=".ui.fragment.menu.MainMenuFragment">
+    <!--        android:background="@drawable/ezik"-->
 
-    <ImageButton
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/ezik"
-        android:src="@drawable/menu_button"
-        android:text="@string/button"
-        app:layout_constraintEnd_toEndOf="@+id/instruction"
-        app:layout_constraintStart_toStartOf="@+id/instruction"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textview"
-        android:textColor="#EFEFEF"
+        android:layout_marginTop="50dp"
+        android:divider="@drawable/buttons_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/gradeint_button2">
+
+            <TextView
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="3dp"
+
+                android:background="@color/black_main"
+                android:gravity="center"
+                android:text="menu"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/gradeint_button2">
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@color/black_main"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/Instruction"
+                android:textColor="#FBFBFB"
+                android:textSize="32sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/gradeint_button2">
+
+            <TextView
+                android:id="@+id/leaderboards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+
+                android:background="@color/black_main"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/Leaderboard"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp" />
+        </FrameLayout>
+
+        <!--            android:background="@drawable/ezik"-->
+
+
+    </LinearLayout>
 
     <ImageButton
-        android:id="@+id/instruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ezik"
-        android:src="@drawable/instukcja_button"
-        android:text="@string/buttonxd"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/leaderboards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/Leaderboard"
-        app:layout_constraintEnd_toEndOf="@+id/play"
-        app:layout_constraintStart_toStartOf="@+id/play"
-        app:layout_constraintTop_toBottomOf="@+id/play" />
-
-    <Button
         android:id="@+id/music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/black_main"
+        android:src="@drawable/sound_off"
         android:text="@string/muzyka"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/language"
+        android:text="@string/translation"
+        android:textColor="#B83737"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/music"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

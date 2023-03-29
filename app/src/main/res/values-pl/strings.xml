@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="button">Button cokodjadjskaldjjjkadnjkdasddas</string>
-    <string name="buttonxd">Button fdfhsdkjfhsdkjf</string>
+    <string name="Instruction">Instrukcja</string>
     <string name="textview">TextView fhfjkjhsdfkjfs</string>
     <string name="rozpocznij_rozgrywk">Rozpocznij rozgrywkę</string>
     <string name="player_name">nazwa gracza</string>
@@ -10,4 +10,5 @@
     <string name="muzyka">muzyka</string>
     <string name="Leaderboard">Ranking</string>
     <string name="gametype">Typ Gry</string>
+    <string name="translation">PL</string>
 </resources>

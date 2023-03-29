@@ -1,5 +1,8 @@
 package com.example.memoryapp.ui.fragment.menu
 
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.NavOptionsBuilder
@@ -41,9 +45,12 @@ class MainMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainMenuBinding.inflate(inflater, container, false)
+        textGradient(binding.language)
+
         binding.instruction.setOnClickListener {
             Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToInstructionFragment())
         }
+
         binding.play.setOnClickListener {
             Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToBottomDialogFragment())
         }
@@ -52,14 +59,18 @@ class MainMenuFragment : Fragment() {
             findNavController().navigate(action)
         }
         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.music)
+        mediaPlayer.isLooping= true
         binding.music.setOnClickListener {
+            Log.i("muzyka",mediaPlayer.isPlaying.toString())
             if (mediaPlayer.isPlaying){
-                mediaPlayer.isLooping = false
-                mediaPlayer.stop()
+//                mediaPlayer.isLooping = false
+                mediaPlayer.pause()
+                binding.music.setImageResource(R.drawable.sound_off)
             }
             else{
-                mediaPlayer.isLooping = true
+
                 mediaPlayer.start()
+                binding.music.setImageResource(R.drawable.sound_on)
             }
 //
 
@@ -94,7 +105,24 @@ class MainMenuFragment : Fragment() {
                 .setPopUpTo(R.id.mainMenuFragment,true)
                 .build()
         )
-
     }
+
+    private fun textGradient(textView: TextView){
+        val paint = textView.paint
+        val colors = intArrayOf(resources.getColor(R.color.green_gradient),resources.getColor(R.color.red_gradient))
+        val position = floatArrayOf(0F,1F)
+        val width = paint.measureText(textView.text.toString())
+        var textShader = LinearGradient(
+            0F,
+            0F,
+            width,
+            0F,
+            colors,
+            position,
+            Shader.TileMode.CLAMP)
+        textView.paint.shader = textShader
+    }
+
+
 
 }

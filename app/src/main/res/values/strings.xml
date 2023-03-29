@@ -7,7 +7,7 @@
     <string name="_4x8" translatable="false">32</string>
     <string name="gametype">GameType</string>
     <string name="button">Button</string>
-    <string name="buttonxd">Button gdfjhfgsjdhf</string>
+    <string name="Instruction">Instruction</string>
     <string name="textview">TextView fdsgfhjdfdfsfgf sfddsf</string>
     <string name="rozpocznij_rozgrywk">Start Game</string>
     <string name="player_name">TextView</string>
@@ -15,4 +15,5 @@
     <string name="language">language</string>
     <string name="muzyka">Music</string>
     <string name="Leaderboard">Leaderboard</string>
+    <string name="translation">EN</string>
 </resources>
