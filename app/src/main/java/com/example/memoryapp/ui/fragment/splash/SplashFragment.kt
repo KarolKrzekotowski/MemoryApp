@@ -7,29 +7,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.memoryapp.R
+import com.example.memoryapp.databinding.FragmentSplashBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 class SplashFragment : Fragment() {
 
-
+private lateinit var binding: FragmentSplashBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentSplashBinding.inflate(inflater,container,false)
+        val extras = FragmentNavigatorExtras(binding.imageView8 to "image_big")
         Handler(Looper.getMainLooper()).postDelayed({
+            val bundle = bundleOf("victory" to false )
             findNavController()
                 .navigate(
-                    SplashFragmentDirections.actionSplashFragmentToMainMenuFragment(
-                        false
-                    )
+                    R.id.action_splashFragment_to_mainMenuFragment,
+                    bundle,
+                    null,
+                    extras
                 )
-        }, 500L)
+
+        }, 1000L)
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        return binding.root
     }
 
 

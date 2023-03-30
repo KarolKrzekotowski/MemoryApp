@@ -16,4 +16,8 @@
     <string name="muzyka">Music</string>
     <string name="Leaderboard">Leaderboard</string>
     <string name="translation">EN</string>
+    <string-array name="tabNames">
+        <item>Local rank</item>
+        <item>Global rank</item>
+    </string-array>
 </resources>

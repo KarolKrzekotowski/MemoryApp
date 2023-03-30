@@ -1,61 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black_main"
     tools:context=".ui.fragment.leaderboard.LeaderboardFragment">
 
+    <ImageView
+        android:id="@+id/music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/sound_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/black_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!--        <com.google.android.material.tabs.TabItem-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Monday" />-->
-
-        <!--        <com.google.android.material.tabs.TabItem-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Tuesday" />-->
-
-        <!--        <com.google.android.material.tabs.TabItem-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Wednesday" />-->
+        app:layout_constraintTop_toBottomOf="@+id/music"
+        app:tabIndicatorColor="@color/white">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pagerRank"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/backRanks"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/filtringButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="0.0">
 
     </androidx.viewpager2.widget.ViewPager2>
-
-    <Button
-        android:id="@+id/backRanks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/filtringButton"
@@ -63,8 +51,34 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:clickable="true"
-        android:src="@drawable/filtr_foreground"
+        style="@style/Floating"
+        android:src="@drawable/fab_custom"
+
+        app:backgroundTint="#FFFFFF"
+        app:backgroundTintMode="src_over"
+        app:fabCustomSize="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="@+id/music"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/music" />
+
+    <TextView
+        android:id="@+id/langrank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/translation"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/go_back"
+        app:layout_constraintEnd_toStartOf="@+id/music"
+        app:layout_constraintStart_toEndOf="@+id/go_back"
+        app:layout_constraintTop_toTopOf="@+id/go_back" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,12 +17,15 @@ import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
 import com.example.memoryapp.R
 import com.example.memoryapp.data.db.entities.LeaderboardEntity
 import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.databinding.FragmentMainMenuBinding
 import com.example.memoryapp.game.hideUI
 import com.example.memoryapp.repository.LeaderboardRepository
+import com.example.memoryapp.ui.activities.MainActivity
+import com.example.memoryapp.utils.textGradient
 import com.example.memoryapp.utils.translate
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -37,7 +40,7 @@ class MainMenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMainMenuBinding
     private val args: MainMenuFragmentArgs by navArgs()
-
+    private val mediaPlayer = MainActivity.mediaPlayer
 
 
     override fun onCreateView(
@@ -45,7 +48,7 @@ class MainMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainMenuBinding.inflate(inflater, container, false)
-        textGradient(binding.language)
+        binding.language.textGradient()
 
         binding.instruction.setOnClickListener {
             Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToInstructionFragment())
@@ -58,33 +61,40 @@ class MainMenuFragment : Fragment() {
             val action = MainMenuFragmentDirections.actionMainMenuFragmentToLeaderboardFragment()
             findNavController().navigate(action)
         }
-        val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.music)
-        mediaPlayer.isLooping= true
+
+
+        val animation = TransitionInflater.from(requireContext()).inflateTransition(
+            android.R.transition.move
+        )
+        sharedElementEnterTransition = animation
+
+        if (mediaPlayer.isPlaying){
+            binding.music.setImageResource(R.drawable.sound_on)
+        }
+        else{
+            binding.music.setImageResource(R.drawable.sound_off)
+        }
         binding.music.setOnClickListener {
-            Log.i("muzyka",mediaPlayer.isPlaying.toString())
+
             if (mediaPlayer.isPlaying){
-//                mediaPlayer.isLooping = false
                 mediaPlayer.pause()
                 binding.music.setImageResource(R.drawable.sound_off)
             }
             else{
-
                 mediaPlayer.start()
                 binding.music.setImageResource(R.drawable.sound_on)
             }
-//
-
         }
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val repository = LeaderboardRepository(requireContext())
-//            var i = 0
-//            while (i<5){
+//            var i = 10
+////            while (i<45){
 //
-//                repository.insertPlayer(LeaderboardEntity(0,"Karol$i",24,"00:05:0$i",15+i))
+//                repository.insertPlayer(LeaderboardEntity(0,"Karoldlugabardzonazwa$i",24,"00:05:0$i",15+i))
 //
-//        i++
-//        }
-
+////        i++
+////        }
+//
 //        }
         binding.language.setOnClickListener {
             translate()
@@ -107,21 +117,7 @@ class MainMenuFragment : Fragment() {
         )
     }
 
-    private fun textGradient(textView: TextView){
-        val paint = textView.paint
-        val colors = intArrayOf(resources.getColor(R.color.green_gradient),resources.getColor(R.color.red_gradient))
-        val position = floatArrayOf(0F,1F)
-        val width = paint.measureText(textView.text.toString())
-        var textShader = LinearGradient(
-            0F,
-            0F,
-            width,
-            0F,
-            colors,
-            position,
-            Shader.TileMode.CLAMP)
-        textView.paint.shader = textShader
-    }
+
 
 
 

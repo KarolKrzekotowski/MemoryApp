@@ -11,7 +11,7 @@
 
                 >
             </gradient>
-            <corners android:radius="10dp"/>
+            <corners android:radius="20dp"/>
             <padding android:left="2dp"
                 android:top="2dp"
                 android:right="2dp"

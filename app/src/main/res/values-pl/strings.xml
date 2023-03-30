@@ -11,4 +11,8 @@
     <string name="Leaderboard">Ranking</string>
     <string name="gametype">Typ Gry</string>
     <string name="translation">PL</string>
+    <string-array name="tabNames">
+        <item>Ranking loaklny</item>
+        <item>Ranking globalny</item>
+    </string-array>
 </resources>
