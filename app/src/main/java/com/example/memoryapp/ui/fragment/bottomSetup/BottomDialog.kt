@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
@@ -27,55 +29,23 @@ class BottomDialog : BottomSheetDialogFragment() {
     ): View {
 
         _binding = BottomDialogBinding.inflate(inflater, container, false)
-
-
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        val buttonsList = mutableListOf<Button>()
-        buttonsList.apply {
-            add(binding.button16)
-            add(binding.button24)
-            add(binding.button32)
-        }
-
-        binding.apply {
-            button16.setOnClickListener {
-                size = 4
-                buttonsList.map { it.backgroundTintList = requireContext().resources.getColorStateList(R.color.purple_500) }
-                button16.backgroundTintList = requireContext().resources.getColorStateList(R.color.teal_200)
-                binding.button16.background = resources.getDrawable(R.drawable.chosen_button)
-
-            }
-            button24.setOnClickListener {
-                size = 6
-                buttonsList.map { it.backgroundTintList = requireContext().resources.getColorStateList(R.color.purple_500) }
-                button24.backgroundTintList = requireContext().resources.getColorStateList(R.color.teal_200)
-                binding.button24.background = resources.getDrawable(R.drawable.chosen_button)
-            }
-            button32.setOnClickListener {
-                size = 8
-                buttonsList.map { it.backgroundTintList = requireContext().resources.getColorStateList(R.color.purple_500) }
-                button32.backgroundTintList = requireContext().resources.getColorStateList(R.color.teal_200)
-                binding.button32.background = resources.getDrawable(R.drawable.chosen_button)
-            }
-
-        }
-        // text with gradient for 2 colors
+        sizePicker()
+        categoryPicker()
         binding.startGame.setOnClickListener {
             if(size == 0){
                 Toast.makeText(requireContext(),"Wybierz rozmiar", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-//            if(category == ""){
-//                Toast.makeText(requireContext(),"Wybierz kategorię", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
+            if(category == ""){
+                Toast.makeText(requireContext(),"Wybierz kategorię", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (binding.playerName.text.toString() == ""){
                 Toast.makeText(requireContext(),"Brak nazwy gracza", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -91,5 +61,74 @@ class BottomDialog : BottomSheetDialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun sizePicker(){
+
+
+        binding.apply {
+            button16.setOnClickListener {
+                size = 4
+                sizeBackgroundRefresh()
+                f16.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+            button24.setOnClickListener {
+                size = 6
+                sizeBackgroundRefresh()
+                f24.background = resources.getDrawable(R.drawable.gradeint_button2)
+
+            }
+            button32.setOnClickListener {
+                size = 8
+                sizeBackgroundRefresh()
+                f32.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+
+        }
+    }
+
+    private fun sizeBackgroundRefresh(){
+        val buttonsList = mutableListOf<FrameLayout>()
+        buttonsList.apply {
+            add(binding.f16)
+            add(binding.f24)
+            add(binding.f32)
+        }
+        buttonsList.map { it.setBackgroundResource(R.drawable.ezik_white) }
+    }
+    private fun categoryPicker(){
+
+        binding.apply {
+            emoji.setOnClickListener {
+                categoryBackgroundRefresh()
+                category = "emoji"
+                emo1.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+            furniture.setOnClickListener {
+                categoryBackgroundRefresh()
+                category = "furniture"
+                furn.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+            space.setOnClickListener {
+                categoryBackgroundRefresh()
+                category = "space"
+                plan.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+            food.setOnClickListener {
+                categoryBackgroundRefresh()
+                category = "food"
+                fo1.background = resources.getDrawable(R.drawable.gradeint_button2)
+            }
+        }
+    }
+    private fun categoryBackgroundRefresh(){
+        val categoryList = mutableListOf<FrameLayout>()
+        categoryList.apply {
+            add(binding.emo1)
+            add(binding.fo1)
+            add(binding.furn)
+            add(binding.plan)
+        }
+        categoryList.map { it.setBackgroundResource(R.drawable.ezik_white) }
     }
 }

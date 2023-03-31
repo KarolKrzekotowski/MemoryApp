@@ -15,10 +15,15 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:navigationBarColor">@color/black_main</item>
+
     </style>
     <style name="Floating" parent="Widget.Design.FloatingActionButton">
         <!---rest of your style-->
         <item name="android:foreground">@drawable/fab_custom</item>
     </style>
+
+
+
 
 </resources>
