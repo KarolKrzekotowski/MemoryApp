@@ -5,6 +5,7 @@
     android:id="@+id/table"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_main"
     tools:context=".ui.fragment.game.GameFragment">
 
     <TextView
@@ -13,7 +14,9 @@
         android:layout_height="43dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Tries:"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/moves"
         app:layout_constraintHorizontal_bias="0.5"
@@ -27,6 +30,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="0"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +42,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="Time:"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/clock"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +54,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="00:00:00"
+        android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

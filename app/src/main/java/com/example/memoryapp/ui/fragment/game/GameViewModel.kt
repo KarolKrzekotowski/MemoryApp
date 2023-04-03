@@ -7,9 +7,11 @@ import com.example.memoryapp.R
 import com.example.memoryapp.data.db.entities.LeaderboardEntity
 
 import com.example.memoryapp.data.model.Card
+import com.example.memoryapp.data.model.Category
 import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.repository.LeaderboardRepository
 import com.example.memoryapp.game.cardsArray
+import com.example.memoryapp.game.memoryArray
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -141,16 +143,23 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     }
 
 
-    fun prepareCards(sizeOfMap:Int){
+    fun prepareCards(sizeOfMap:Int,category: String="szef"){
         viewModelScope.launch {
             val cards = mutableListOf<Card>()
-            cardsArray.shuffle()
+            val array :Array<Int>
+            if (sizeOfMap>4){
+                array = cardsArray
+            }
+            else{
+                array = memoryArray
+            }
+            array.shuffle()
             val temporaryCards = mutableListOf<Int>()
 
-            temporaryCards.addAll(cardsArray.take(sizeOfMap*2))
+            temporaryCards.addAll(array.take(sizeOfMap*2))
             for (i in 0 until sizeOfMap*2){
-                cards.add(Card(temporaryCards[i], R.drawable.card_back_black,false,false))
-                cards.add(Card(temporaryCards[i], R.drawable.card_back_black,false,false))
+                cards.add(Card(temporaryCards[i], R.drawable.black_back,false,false))
+                cards.add(Card(temporaryCards[i], R.drawable.black_back,false,false))
             }
             cards.shuffle()
             _shuffledCards.update {

@@ -58,21 +58,22 @@ val cardsArray = arrayOf(
     R.drawable.diamonds_8,
     R.drawable.diamonds_jack,)
 
-val emojiArray = arrayOf(R.drawable.emoji8,
+val emojiArray = arrayOf(
+//    R.drawable.emoji8,
     R.drawable.emoji1,
-    R.drawable.emoji12,
+//    R.drawable.emoji12,
     R.drawable.emoji15,
-    R.drawable.emoji6,
-    R.drawable.emoji14,
-    R.drawable.emoji13,
-    R.drawable.emoji11,
-    R.drawable.emoji3,
-    R.drawable.emoji7,
-    R.drawable.emoji5,
-    R.drawable.emoji2,
-    R.drawable.emoji9,
-    R.drawable.emoji4,
-    R.drawable.emoji10,
+//    R.drawable.emoji6,
+//    R.drawable.emoji14,
+//    R.drawable.emoji13,
+//    R.drawable.emoji11,
+//    R.drawable.emoji3,
+//    R.drawable.emoji7,
+//    R.drawable.emoji5,
+//    R.drawable.emoji2,
+//    R.drawable.emoji9,
+//    R.drawable.emoji4,
+//    R.drawable.emoji10,
     R.drawable.emoji16,)
 
 val foodArray = arrayOf(R.drawable.milk,
@@ -122,3 +123,14 @@ val spaceArray = arrayOf(R.drawable.venus,
     R.drawable.sun,
     R.drawable.uranus,
     R.drawable.space_capsule,)
+
+val memoryArray = arrayOf(
+    R.drawable.memory1,
+    R.drawable.memory6,
+    R.drawable.memory3,
+    R.drawable.memory4,
+    R.drawable.memory8,
+    R.drawable.memory5,
+    R.drawable.memory2,
+    R.drawable.memory7,
+)

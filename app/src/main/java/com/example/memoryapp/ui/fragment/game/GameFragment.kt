@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.memoryapp.databinding.FragmentGameBinding
 import com.example.memoryapp.game.hideUI
+import com.example.memoryapp.utils.textGradient
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -43,6 +44,12 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.sizeOfMap = sizeOfMap
         viewModel.playerName = args.playerName
+        binding.apply {
+            textView2.textGradient()
+            textView5.textGradient()
+            moves.textGradient()
+            clock.textGradient()
+        }
         val adapter = BoardAdapter(
             onTryClick = {viewHolder, card ->
                 viewModel.insertToPair(Pair(viewHolder,card))
