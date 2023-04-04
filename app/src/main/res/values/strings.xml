@@ -16,6 +16,10 @@
     <string name="muzyka">Music</string>
     <string name="Leaderboard">Leaderboard</string>
     <string name="translation">EN</string>
+    <string name="Instruction_title">Instruction</string>
+    <string name="Instruction_title1">Description</string>
+    <string name="Instruction_body">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
+    <string name="Instruction_body1">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
     <string-array name="tabNames">
         <item>Local rank</item>
         <item>Global rank</item>

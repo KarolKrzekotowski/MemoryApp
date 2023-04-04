@@ -11,6 +11,10 @@
     <string name="Leaderboard">Ranking</string>
     <string name="gametype">Typ Gry</string>
     <string name="translation">PL</string>
+    <string name="Instruction_title">Instrukcja</string>
+    <string name="Instruction_title1">Opis statystyk</string>
+    <string name="Instruction_body">Memory App ma za zadanie trenować i poprawiać Twoją pamięć. Celem gry jest zapamiętanie, jaki symbol pojawił się dwie karty temu (lub trzy karty temu w przypadku Overdrive) i określenie, czy pasuje on do aktualnie pokazywanej karty. Karty przesuwają się w lewo i odwracają po każdym odgadnięciu. Karta po prawej stronie jest zakryta i pokazuje symbol, podczas gdy dwie karty (trzy w przypadku Overdrive) po lewej stronie są zakryte, zmuszając Cię do zapamiętania, co pokazywały wcześniej.</string>
+    <string name="Instruction_body1">Memory App ma za zadanie trenować i poprawiać Twoją pamięć. Celem gry jest zapamiętanie, jaki symbol pojawił się dwie karty temu (lub trzy karty temu w przypadku Overdrive) i określenie, czy pasuje on do aktualnie pokazywanej karty. Karty przesuwają się w lewo i odwracają po każdym odgadnięciu. Karta po prawej stronie jest zakryta i pokazuje symbol, podczas gdy dwie karty (trzy w przypadku Overdrive) po lewej stronie są zakryte, zmuszając Cię do zapamiętania, co pokazywały wcześniej.</string>
     <string-array name="tabNames">
         <item>Ranking loaklny</item>
         <item>Ranking globalny</item>
