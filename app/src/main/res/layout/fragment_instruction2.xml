@@ -9,34 +9,13 @@
     android:foregroundTint="@color/black_main"
     tools:context=".ui.fragment.menu.MainMenuFragment">
 
-    <ImageView
-        android:id="@+id/music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/sound_off"
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/go_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:src="@drawable/arrow_back"
-        app:layout_constraintBottom_toBottomOf="@+id/music"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/music" />
-
-    <TextView
-        android:id="@+id/langinst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/translation"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/go_back"
-        app:layout_constraintEnd_toStartOf="@+id/music"
-        app:layout_constraintStart_toEndOf="@+id/go_back"
-        app:layout_constraintTop_toTopOf="@+id/go_back" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

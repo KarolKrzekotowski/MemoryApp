@@ -1,13 +1,18 @@
 package com.example.memoryapp.ui.fragment.instruction
 
+import android.R
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.memoryapp.databinding.FragmentInstructionBinding
 import com.example.memoryapp.ui.fragment.instruction.adapter.InstructionAdapter
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+
 
 class InstructionFragment : Fragment() {
     private var _binding: FragmentInstructionBinding? = null
@@ -29,7 +34,12 @@ class InstructionFragment : Fragment() {
         instructionAdapter = InstructionAdapter(this)
         viewPager = binding.viewpager
         viewPager.adapter = instructionAdapter
+
+
+
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
