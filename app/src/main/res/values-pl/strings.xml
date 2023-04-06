@@ -19,4 +19,5 @@
         <item>Ranking loaklny</item>
         <item>Ranking globalny</item>
     </string-array>
+    <string name="ToastVictory">Gratulacje</string>
 </resources>

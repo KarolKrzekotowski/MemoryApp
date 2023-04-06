@@ -35,8 +35,10 @@ class InstructionFragment : Fragment() {
         viewPager = binding.viewpager
         viewPager.adapter = instructionAdapter
 
-
-
+        val tabLayout = binding.tabLayout2
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            //Some implementation
+        }.attach()
     }
 
 

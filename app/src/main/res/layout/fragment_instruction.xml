@@ -9,18 +9,6 @@
     android:foregroundTint="@color/black_main"
     tools:context=".ui.fragment.menu.MainMenuFragment">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/black_main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/langinst" >
-
-    </androidx.viewpager2.widget.ViewPager2>
-
     <ImageView
         android:id="@+id/music"
         android:layout_width="wrap_content"
@@ -52,6 +40,28 @@
         app:layout_constraintEnd_toStartOf="@+id/music"
         app:layout_constraintStart_toEndOf="@+id/go_back"
         app:layout_constraintTop_toTopOf="@+id/go_back" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/black_main"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/langinst"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
 
 
 

@@ -12,11 +12,11 @@
     <item android:id="@+id/action_size_16"
         android:title="size16"
         />
+    <item android:id="@+id/action_size_20"
+        android:title="size20"
+        />
     <item android:id="@+id/action_size_24"
         android:title="size24"
-        />
-    <item android:id="@+id/action_size_32"
-        android:title="size32"
         />
 
 </menu>

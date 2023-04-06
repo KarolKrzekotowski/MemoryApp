@@ -13,10 +13,10 @@
         </shape>
 
     </item>
-    <item android:gravity="center"
-        >
-        <bitmap android:src="@drawable/plus"
-            android:gravity="fill_horizontal" />
+    <item android:gravity="center">
+        <bitmap android:src="@drawable/sort"
+
+            android:gravity="fill" />
 
     </item>
 

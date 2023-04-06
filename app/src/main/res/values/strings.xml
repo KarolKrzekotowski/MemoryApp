@@ -24,4 +24,5 @@
         <item>Local rank</item>
         <item>Global rank</item>
     </string-array>
+    <string name="ToastVictory">Congratulations</string>
 </resources>

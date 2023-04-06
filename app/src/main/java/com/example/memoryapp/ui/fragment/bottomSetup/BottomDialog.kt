@@ -73,13 +73,13 @@ class BottomDialog : BottomSheetDialogFragment() {
                 f16.background = resources.getDrawable(R.drawable.gradeint_button2)
             }
             button24.setOnClickListener {
-                size = 6
+                size = 5
                 sizeBackgroundRefresh()
                 f24.background = resources.getDrawable(R.drawable.gradeint_button2)
 
             }
             button32.setOnClickListener {
-                size = 8
+                size = 6
                 sizeBackgroundRefresh()
                 f32.background = resources.getDrawable(R.drawable.gradeint_button2)
             }

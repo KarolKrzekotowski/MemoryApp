@@ -67,13 +67,15 @@ class MainMenuFragment : Fragment() {
             android.R.transition.move
         )
         sharedElementEnterTransition = animation
+        if(mediaPlayer != null){
+            if (mediaPlayer.isPlaying){
+                binding.music.setImageResource(R.drawable.sound_on)
+            }
+            else{
+                binding.music.setImageResource(R.drawable.sound_off)
+            }
+        }
 
-        if (mediaPlayer.isPlaying){
-            binding.music.setImageResource(R.drawable.sound_on)
-        }
-        else{
-            binding.music.setImageResource(R.drawable.sound_off)
-        }
         binding.music.setOnClickListener {
 
             if (mediaPlayer.isPlaying){
@@ -101,7 +103,7 @@ class MainMenuFragment : Fragment() {
             recreate()
         }
         if (args.victory){
-            Toast.makeText(requireContext(),"Gratulacje", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),R.string.ToastVictory, Toast.LENGTH_SHORT).show()
         }
         hideUI()
 

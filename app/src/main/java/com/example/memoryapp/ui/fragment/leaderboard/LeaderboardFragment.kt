@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.memoryapp.R
 import com.example.memoryapp.databinding.FragmentLeaderboardBinding
+
 import com.example.memoryapp.game.hideUI
 import com.example.memoryapp.ui.activities.MainActivity
 
@@ -110,8 +111,8 @@ class LeaderboardFragment : Fragment() {
                         hideUI()
                         true
                     }
-                    R.id.action_size_32 -> {
-                        viewmodel.filterSize(32)
+                    R.id.action_size_20 -> {
+                        viewmodel.filterSize(20)
                         hideUI()
                         true
                     }
@@ -133,6 +134,9 @@ class LeaderboardFragment : Fragment() {
             }
             popupMenu.inflate(R.menu.filtring_options)
             popupMenu.show()
+            popupMenu.setOnDismissListener {
+                hideUI()
+            }
         }
 
 

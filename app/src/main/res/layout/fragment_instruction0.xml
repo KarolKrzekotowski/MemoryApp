@@ -40,18 +40,19 @@
     <TextView
         android:id="@+id/instbody"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:gravity="start|center_horizontal|top"
+        android:gravity="start|top"
         android:text="@string/Instruction_body"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instheader" />
+        app:layout_constraintTop_toBottomOf="@+id/instheader"
+        app:layout_constraintVertical_bias="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
