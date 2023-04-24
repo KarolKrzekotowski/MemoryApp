@@ -38,7 +38,7 @@ class MainMenuFragment : Fragment() {
         }
 
         binding.play.setOnClickListener {
-            Navigation.findNavController(binding.root).navigate(MainMenuFragmentDirections.actionMainMenuFragmentToBottomDialogFragment())
+            findNavController().navigate(MainMenuFragmentDirections.actionMainMenuFragmentToBottomDialogFragment())
         }
         binding.leaderboards.setOnClickListener {
             val action = MainMenuFragmentDirections.actionMainMenuFragmentToLeaderboardFragment()
@@ -50,6 +50,7 @@ class MainMenuFragment : Fragment() {
             android.R.transition.move
         )
         sharedElementEnterTransition = animation
+
         if (mediaPlayer.isPlaying){
             binding.music.setImageResource(R.drawable.sound_on)
         }

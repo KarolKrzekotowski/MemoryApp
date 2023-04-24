@@ -29,7 +29,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:tabIndicatorColor="@color/white"></com.google.android.material.tabs.TabLayout>
+        app:tabIndicatorColor="@color/white"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pagerRank"
