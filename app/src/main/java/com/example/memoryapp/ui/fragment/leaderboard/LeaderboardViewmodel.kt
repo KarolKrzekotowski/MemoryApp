@@ -29,11 +29,13 @@ class LeaderboardViewmodel(application: Application):AndroidViewModel(applicatio
     private val _resultType = MutableStateFlow(true)
     val resultType = _resultType.asStateFlow()
     var time = true
+    var size = 16
 
 
 
 
     fun filterSize(size: Int){
+        this.size = size
         _tempLocal.update { localLeaderboard.value!!.filter { it.level == size } }
         _tempGlobal.update { globalLeaderboard.value!!.filter { it.level == size } }
         filterReference(time)

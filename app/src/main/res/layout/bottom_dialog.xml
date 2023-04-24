@@ -37,6 +37,7 @@
                 android:background="@drawable/ezik"
                 android:gravity="center"
 
+                android:singleLine="true"
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
     </FrameLayout>

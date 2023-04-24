@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/size_16"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_main"
@@ -27,38 +28,20 @@
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/music"
-        app:tabIndicatorColor="@color/white">
-    </com.google.android.material.tabs.TabLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:tabIndicatorColor="@color/white"></com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pagerRank"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/filtringButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
     </androidx.viewpager2.widget.ViewPager2>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/filtringButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        style="@style/Floating"
-        android:src="@drawable/fab_custom"
-
-        app:backgroundTint="#FFFFFF"
-        app:backgroundTintMode="src_over"
-        app:fabCustomSize="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/go_back"
@@ -80,5 +63,65 @@
         app:layout_constraintEnd_toStartOf="@+id/music"
         app:layout_constraintStart_toEndOf="@+id/go_back"
         app:layout_constraintTop_toTopOf="@+id/go_back" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/langrank">
+
+        <TextView
+            android:id="@+id/filter16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/_16"
+            android:textColor="#FFFEFE"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/filter20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/_20"
+            android:textSize="24sp"
+            android:textColor="#ECECEC" />
+
+        <TextView
+            android:id="@+id/filter24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="@string/_24" />
+
+        <TextView
+            android:id="@+id/filter_tries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:textSize="24sp"
+            android:text="@string/Tries" />
+
+        <TextView
+            android:id="@+id/filter_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:textSize="24sp"
+            android:text="@string/Time" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

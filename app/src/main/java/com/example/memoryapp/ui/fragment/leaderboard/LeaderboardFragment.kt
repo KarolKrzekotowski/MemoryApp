@@ -1,16 +1,13 @@
 package com.example.memoryapp.ui.fragment.leaderboard
 
-import android.content.res.ColorStateList
-import android.graphics.drawable.ColorStateListDrawable
-import android.media.MediaPlayer
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -37,6 +34,7 @@ class LeaderboardFragment : Fragment() {
     private lateinit var leaderboardPagerAdapter: LeaderboardPagerAdapter
     private var tabsNames = Array<String>(8){"it = $it"}
     private val mediaPlayer = MainActivity.mediaPlayer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -97,49 +95,60 @@ class LeaderboardFragment : Fragment() {
         viewmodel.loadData()
         viewmodel.filterSize(16)
 
-        binding.filtringButton.setOnClickListener {
-            val popupMenu = PopupMenu(requireContext(), it)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.action_size_16 -> {
-                        viewmodel.filterSize(16)
-                        hideUI()
-                        true
-                    }
-                    R.id.action_size_24 -> {
-                        viewmodel.filterSize(24)
-                        hideUI()
-                        true
-                    }
-                    R.id.action_size_20 -> {
-                        viewmodel.filterSize(20)
-                        hideUI()
-                        true
-                    }
-                    R.id.result -> {
-                        viewmodel.filterReference(true)
-                        hideUI()
-                        true
-                    }
-                    R.id.tries -> {
-                        viewmodel.filterReference(false)
-                        hideUI()
-                        true
-                    }
-                     else -> {
-                         hideUI()
-                         false
-                     }
-                }
+        binding.apply {
+
+            filter16.setOnClickListener {
+                viewmodel.filterSize(16)
+                fixSizeColor(filter16)
+
             }
-            popupMenu.inflate(R.menu.filtring_options)
-            popupMenu.show()
-            popupMenu.setOnDismissListener {
-                hideUI()
+            filter20.setOnClickListener {
+                viewmodel.filterSize(20)
+                fixSizeColor(filter20)
+
+            }
+            filter24.setOnClickListener {
+                viewmodel.filterSize(24)
+                fixSizeColor(filter24)
+
+            }
+            filterTime.setOnClickListener {
+                viewmodel.filterReference(true)
+                fixResultColors()
+            }
+            filterTries.setOnClickListener {
+                viewmodel.filterReference(false)
+                fixResultColors()
             }
         }
+        fixResultColors()
+        fixSizeColor(binding.filter16)
 
+    }
+    private fun fixResultColors(){
 
+        if (!viewmodel.time){
+            binding.filterTime.background = resources.getDrawable(R.drawable.rounded_empty_green)
+            binding.filterTime.setTextColor(resources.getColor(R.color.white))
+            binding.filterTries.background = resources.getDrawable(R.drawable.rounded_green)
+            binding.filterTries.setTextColor(resources.getColor(R.color.black))
+        }
+        else{
+            binding.filterTime.background = resources.getDrawable(R.drawable.rounded_green)
+            binding.filterTime.setTextColor(resources.getColor(R.color.black))
+            binding.filterTries.background = resources.getDrawable(R.drawable.rounded_empty_green)
+            binding.filterTries.setTextColor(resources.getColor(R.color.white))
+        }
+    }
+    private fun fixSizeColor(button: TextView){
+        val text:List<TextView>
+        text = listOf(binding.filter16,binding.filter20,binding.filter24)
+        text.forEach {
+            it.background = resources.getDrawable(R.drawable.rounded_empty_green)
+            it.setTextColor(resources.getColor(R.color.white))
+        }
+        button.background = resources.getDrawable(R.drawable.rounded_green)
+        button.setTextColor(resources.getColor(R.color.black))
     }
 
     private fun recreate(){

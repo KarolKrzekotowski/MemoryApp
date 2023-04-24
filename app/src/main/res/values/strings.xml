@@ -5,6 +5,10 @@
     <string name="_4x4" translatable="false">16</string>
     <string name="_4x6" translatable="false">24</string>
     <string name="_4x8" translatable="false">32</string>
+    <string name="_16" translatable="false">16</string>
+    <string name="_20" translatable="false">20</string>
+    <string name="_24" translatable="false">24</string>
+
     <string name="gametype">GameType</string>
     <string name="button">Button</string>
     <string name="Instruction">Instruction</string>
@@ -18,11 +22,20 @@
     <string name="translation">EN</string>
     <string name="Instruction_title">Instruction</string>
     <string name="Instruction_title1">Description</string>
+    <string name="Time">Time</string>
+    <string name="Tries">Tries</string>
     <string name="Instruction_body">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
     <string name="Instruction_body1">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
     <string-array name="tabNames">
         <item>Local rank</item>
         <item>Global rank</item>
+    </string-array>
+    <string-array name="options">
+        <item>16</item>
+        <item>20</item>
+        <item>24</item>
+        <item>Time</item>
+        <item>Score</item>
     </string-array>
     <string name="ToastVictory">Congratulations</string>
 </resources>
