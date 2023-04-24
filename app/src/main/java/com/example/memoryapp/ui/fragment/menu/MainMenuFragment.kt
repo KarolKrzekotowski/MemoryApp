@@ -1,39 +1,22 @@
 package com.example.memoryapp.ui.fragment.menu
 
-import android.graphics.Color
-import android.graphics.LinearGradient
-import android.graphics.Shader
-import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
-import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.example.memoryapp.R
-import com.example.memoryapp.data.db.entities.LeaderboardEntity
-import com.example.memoryapp.data.model.LeaderboardRemote
 import com.example.memoryapp.databinding.FragmentMainMenuBinding
 import com.example.memoryapp.game.hideUI
-import com.example.memoryapp.repository.LeaderboardRepository
 import com.example.memoryapp.ui.activities.MainActivity
 import com.example.memoryapp.utils.textGradient
 import com.example.memoryapp.utils.translate
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class MainMenuFragment : Fragment() {
@@ -67,13 +50,11 @@ class MainMenuFragment : Fragment() {
             android.R.transition.move
         )
         sharedElementEnterTransition = animation
-        if(mediaPlayer != null){
-            if (mediaPlayer.isPlaying){
-                binding.music.setImageResource(R.drawable.sound_on)
-            }
-            else{
-                binding.music.setImageResource(R.drawable.sound_off)
-            }
+        if (mediaPlayer.isPlaying){
+            binding.music.setImageResource(R.drawable.sound_on)
+        }
+        else{
+            binding.music.setImageResource(R.drawable.sound_off)
         }
 
         binding.music.setOnClickListener {
@@ -98,6 +79,7 @@ class MainMenuFragment : Fragment() {
 ////        }
 //
 //        }
+
         binding.language.setOnClickListener {
             translate()
             recreate()
@@ -109,6 +91,8 @@ class MainMenuFragment : Fragment() {
 
         return binding.root
     }
+
+
     private fun recreate(){
         findNavController().navigate(
             R.id.mainMenuFragment,
