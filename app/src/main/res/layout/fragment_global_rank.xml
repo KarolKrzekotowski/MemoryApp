@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:text="pozycja" />
+            android:text="@string/position"
+            android:textColor="@color/white" />
 
         <TextView
 
@@ -32,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:text="nazwa" />
+            android:text="@string/name"
+            android:textColor="@color/white" />
 
         <TextView
 
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:text="trudność" />
+            android:text="@string/difficulty"
+            android:textColor="@color/white" />
 
         <TextView
 
@@ -50,8 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:text="Wynik" />
+            android:text="@string/result"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

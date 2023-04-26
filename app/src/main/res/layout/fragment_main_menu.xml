@@ -36,7 +36,7 @@
 
                 android:background="@drawable/ezik"
                 android:gravity="center"
-                android:text="menu"
+                android:text="@string/menu"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp" />
         </FrameLayout>

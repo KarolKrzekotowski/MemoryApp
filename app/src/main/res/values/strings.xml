@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">MemoryApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="menu" translatable="false">Menu</string>
     <string name="_4x4" translatable="false">16</string>
     <string name="_4x6" translatable="false">24</string>
     <string name="_4x8" translatable="false">32</string>
@@ -25,7 +25,7 @@
     <string name="Time">Time</string>
     <string name="Tries">Tries</string>
     <string name="Instruction_body">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
-    <string name="Instruction_body1">Memory App is meant to train and improve your memory. The goal of this game is to remember what symbol appeared either two cards ago (or three cards ago for Overdrive) and determine if they match with the currently shown card. The cards shift left and flip over after each guess. The card on the right is face up displaying a symbol, while the two cards, three for Overdrive, on the left are face down, forcing you to remember what they displayed previously.</string>
+    <string name="Instruction_body1">Number of attempts - a counter showing how many times the player tried to pair two pictures during the game\nClock - the time counted from the start of the game to its end\nRankings - local and global, show the players results at the selected game difficulty and the possibility of sorting by the number of attempts and playing time\nLocal ranking - a ranking showing the players own results, i.e. parameters such as time and number of clicks \nGlobal ranking - a ranking showing the results of all players playing the game</string>
     <string-array name="tabNames">
         <item>Local rank</item>
         <item>Global rank</item>
@@ -38,4 +38,8 @@
         <item>Score</item>
     </string-array>
     <string name="ToastVictory">Congratulations</string>
+    <string name="position">Place</string>
+    <string name="name">Name</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="result">Result</string>
 </resources>

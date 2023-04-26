@@ -16,7 +16,7 @@
     <string name="Time">Czas</string>
     <string name="Tries">Próby</string>
     <string name="Instruction_body">Memory App ma za zadanie trenować i poprawiać Twoją pamięć. Celem gry jest zapamiętanie, jaki symbol pojawił się dwie karty temu (lub trzy karty temu w przypadku Overdrive) i określenie, czy pasuje on do aktualnie pokazywanej karty. Karty przesuwają się w lewo i odwracają po każdym odgadnięciu. Karta po prawej stronie jest zakryta i pokazuje symbol, podczas gdy dwie karty (trzy w przypadku Overdrive) po lewej stronie są zakryte, zmuszając Cię do zapamiętania, co pokazywały wcześniej.</string>
-    <string name="Instruction_body1">Memory App ma za zadanie trenować i poprawiać Twoją pamięć. Celem gry jest zapamiętanie, jaki symbol pojawił się dwie karty temu (lub trzy karty temu w przypadku Overdrive) i określenie, czy pasuje on do aktualnie pokazywanej karty. Karty przesuwają się w lewo i odwracają po każdym odgadnięciu. Karta po prawej stronie jest zakryta i pokazuje symbol, podczas gdy dwie karty (trzy w przypadku Overdrive) po lewej stronie są zakryte, zmuszając Cię do zapamiętania, co pokazywały wcześniej.</string>
+    <string name="Instruction_body1">Ilość prób - licznik pokazujący ile razy gracz próbował połączyć w parę dwa obrazki w trakcie gry \nZegar - czas liczony od rozpoczęcia gry do jej zakończenia \nRankingi - lokalny i globalny, pokazują wyniki graczy przy  wybranej trudności gry i możliwości sortowania według ilości prób i czasu rozgrywki\nRanking lokalny - ranking pokazujący wyniki własne gracza, czyli parametry takie jak czas i ilość kliknięć \nRanking globalny - ranking pokazujący wyniki wszystkich graczy grających w grę</string>
     <string-array name="tabNames">
         <item>Ranking loaklny</item>
         <item>Ranking globalny</item>
@@ -29,4 +29,8 @@
         <item>Wynik</item>
     </string-array>
     <string name="ToastVictory">Gratulacje</string>
+    <string name="position">Miejsce</string>
+    <string name="name">Nazwa</string>
+    <string name="difficulty">Trudność</string>
+    <string name="result">Wynik</string>
 </resources>

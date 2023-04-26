@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="pozycja"
-            android:textColor="@color/white"/>
+            android:text="@string/position"
+            android:textColor="@color/white" />
 
         <TextView
 
@@ -34,26 +34,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:text="nazwa" />
+            android:text="@string/name"
+            android:textColor="@color/white" />
 
         <TextView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="trudność" />
+            android:text="@string/difficulty"
+            android:textColor="@color/white" />
 
         <TextView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Wynik" />
+            android:text="@string/result"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
