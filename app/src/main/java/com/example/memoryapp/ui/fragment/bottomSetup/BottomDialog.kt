@@ -101,23 +101,23 @@ class BottomDialog : BottomSheetDialogFragment() {
         binding.apply {
             emoji.setOnClickListener {
                 categoryBackgroundRefresh()
-                category = "emoji"
-                emo1.background = resources.getDrawable(R.drawable.gradeint_button2)
+                category = "memory"
+                emo1.background = resources.getDrawable(R.drawable.represant_chosen)
             }
             furniture.setOnClickListener {
                 categoryBackgroundRefresh()
-                category = "furniture"
-                furn.background = resources.getDrawable(R.drawable.gradeint_button2)
+                category = "block"
+                furn.background = resources.getDrawable(R.drawable.represant_chosen)
             }
             space.setOnClickListener {
                 categoryBackgroundRefresh()
-                category = "space"
-                plan.background = resources.getDrawable(R.drawable.gradeint_button2)
+                category = "icon"
+                plan.background = resources.getDrawable(R.drawable.represant_chosen)
             }
             food.setOnClickListener {
                 categoryBackgroundRefresh()
-                category = "food"
-                fo1.background = resources.getDrawable(R.drawable.gradeint_button2)
+                category = "light"
+                fo1.background = resources.getDrawable(R.drawable.represant_chosen)
             }
         }
     }

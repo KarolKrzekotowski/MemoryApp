@@ -9,9 +9,8 @@ import com.example.memoryapp.data.db.entities.LeaderboardEntity
 import com.example.memoryapp.data.model.Card
 import com.example.memoryapp.data.model.Category
 import com.example.memoryapp.data.model.LeaderboardRemote
+import com.example.memoryapp.game.*
 import com.example.memoryapp.repository.LeaderboardRepository
-import com.example.memoryapp.game.cardsArray
-import com.example.memoryapp.game.memoryArray
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -143,15 +142,14 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     }
 
 
-    fun prepareCards(sizeOfMap:Int,category: String="szef"){
+    fun prepareCards(sizeOfMap:Int,category: String){
         viewModelScope.launch {
             val cards = mutableListOf<Card>()
-            val array :Array<Int>
-            if (sizeOfMap>4){
-                array = cardsArray
-            }
-            else{
-                array = memoryArray
+            val array :Array<Int> = when(category){
+                "icon" -> iconArray
+                "light" -> lightArray
+                "block" -> rectangleArray
+                else -> memoryArray
             }
             array.shuffle()
             val temporaryCards = mutableListOf<Int>()

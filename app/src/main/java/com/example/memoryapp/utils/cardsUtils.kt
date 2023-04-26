@@ -127,10 +127,60 @@ val spaceArray = arrayOf(R.drawable.venus,
 val memoryArray = arrayOf(
     R.drawable.memory1,
     R.drawable.memory6,
+    R.drawable.memory11,
     R.drawable.memory3,
+    R.drawable.memory9,
     R.drawable.memory4,
     R.drawable.memory8,
     R.drawable.memory5,
+    R.drawable.memory10,
+    R.drawable.memory12,
     R.drawable.memory2,
     R.drawable.memory7,
 )
+
+val lightArray = arrayOf(
+    R.drawable.light5,
+    R.drawable.light9,
+    R.drawable.light12,
+    R.drawable.light6,
+    R.drawable.light1,
+    R.drawable.light8,
+    R.drawable.light3,
+    R.drawable.light11,
+    R.drawable.light4,
+    R.drawable.light2,
+    R.drawable.light7,
+    R.drawable.light10,
+)
+
+val rectangleArray = arrayOf(
+    R.drawable.rectangle11,
+    R.drawable.rectangle8,
+    R.drawable.rectangle1,
+    R.drawable.rectangle6,
+    R.drawable.rectangle7,
+    R.drawable.rectangle12,
+    R.drawable.rectangle5,
+    R.drawable.rectangle10,
+    R.drawable.rectangle9,
+    R.drawable.rectangle4,
+    R.drawable.rectangle2,
+    R.drawable.rectangle3,
+)
+
+val iconArray = arrayOf(
+    R.drawable.icon6,
+    R.drawable.icon11,
+    R.drawable.icon12,
+    R.drawable.icon1,
+    R.drawable.icon3,
+    R.drawable.icon8,
+    R.drawable.icon5,
+    R.drawable.icon2,
+    R.drawable.icon7,
+    R.drawable.icon10,
+    R.drawable.icon4,
+    R.drawable.icon9,
+)
+

@@ -74,7 +74,7 @@ class GameFragment : Fragment() {
                     }
                 }
                 if (!viewModel.isPlaying){
-                    viewModel.prepareCards(sizeOfMap)
+                    viewModel.prepareCards(sizeOfMap,args.category)
                     viewModel.isPlaying =true
                 }
                 launch {

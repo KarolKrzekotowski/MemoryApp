@@ -60,8 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:background="@drawable/ezik_white"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/ezik_white">
 
             <ImageView
                 android:id="@+id/emoji"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:background="@drawable/ezik"
-                app:srcCompat="@drawable/emoji15" />
+                app:srcCompat="@drawable/reprezentacja1" />
         </FrameLayout>
 
         <FrameLayout
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:background="@drawable/ezik"
-                app:srcCompat="@drawable/beer" />
+                app:srcCompat="@drawable/reprezentacja2" />
         </FrameLayout>
 
         <FrameLayout
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:background="@drawable/ezik"
-                app:srcCompat="@drawable/uranus" />
+                app:srcCompat="@drawable/reprezentacja3" />
         </FrameLayout>
 
         <FrameLayout
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:background="@drawable/ezik"
-                app:srcCompat="@drawable/frame10" />
+                app:srcCompat="@drawable/reprezentacja4" />
         </FrameLayout>
 
     </LinearLayout>
